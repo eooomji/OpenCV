@@ -1,3 +1,4 @@
+// 간략화한 Size_ 클래스 정의와 이름 재정의
 template<typename _Tp> class Size_ {
 public:
 	Size_();								// 기본 생성자. width=0, height=0으로 초기화 됨

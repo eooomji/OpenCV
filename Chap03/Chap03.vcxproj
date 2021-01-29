@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClCompile Include="Chap03.cpp" />
     <ClCompile Include="Point_ 클래스.cpp" />
+    <ClCompile Include="Rect_ 클래스.cpp" />
+    <ClCompile Include="Size_ 클래스.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Chap03.rc" />
