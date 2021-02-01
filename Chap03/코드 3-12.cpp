@@ -9,7 +9,7 @@ void Mat0p6() {
 	Mat mat2 = mat1.inv();
 	cout << "mat2:\n" << mat2 << endl;	// 3 -1 / -2 1
 
-	cout << "mat1.t():\n" << mat1.t() << endl;	// 1 2 / 1 3
+	cout << "mat1.t():\n" << mat1.t() << endl;
 	cout << "mat1 + 3:\n" << mat1 + 3 << endl;
 
 	cout << "mat1 + mat2:\n" << mat1 + mat2 << endl;
