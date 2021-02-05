@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\3.2 Mat 클래스">
+      <UniqueIdentifier>{a5a92c71-91bd-41bc-8633-b2c3bdde4b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\3.2.6">
+      <UniqueIdentifier>{b982aa3a-b874-4e14-870e-342532045ece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\3.2.5">
+      <UniqueIdentifier>{05e23cfa-c320-46c6-96b0-69c83fa990d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\3.4">
+      <UniqueIdentifier>{4dad498f-121f-4181-ae77-6d463ea8bdc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -40,6 +52,39 @@
     </ClCompile>
     <ClCompile Include="Rect_ 클래스.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RotatedRect 클래스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Range 클래스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat 클래스.cpp">
+      <Filter>소스 파일\3.2 Mat 클래스</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat_at 함수.cpp">
+      <Filter>소스 파일\3.2.5</Filter>
+    </ClCompile>
+    <ClCompile Include="Mat_ptr 함수.cpp">
+      <Filter>소스 파일\3.2.5</Filter>
+    </ClCompile>
+    <ClCompile Include="코드 3-10.cpp">
+      <Filter>소스 파일\3.2.5</Filter>
+    </ClCompile>
+    <ClCompile Include="영상 크기.cpp">
+      <Filter>소스 파일\3.2.6</Filter>
+    </ClCompile>
+    <ClCompile Include="코드 3-11.cpp">
+      <Filter>소스 파일\3.2.6</Filter>
+    </ClCompile>
+    <ClCompile Include="코드 3-12.cpp">
+      <Filter>소스 파일\3.2.6</Filter>
+    </ClCompile>
+    <ClCompile Include="코드 3-13.cpp">
+      <Filter>소스 파일\3.2.6</Filter>
+    </ClCompile>
+    <ClCompile Include="코드 3-17.cpp">
+      <Filter>소스 파일\3.4</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
