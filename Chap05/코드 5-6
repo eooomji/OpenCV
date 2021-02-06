@@ -1,0 +1,35 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void contrast2();
+
+int main(void)
+{
+	contrast2();
+
+	return 0;
+}
+
+void contrast2()
+{
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	// 효과적인 영상의 명암비 조절 수식을 그대로 C/C++ 소스 코드 형태로 변환한 코드
+    // 입력 영상 src로부터 명암비가 증가된 결과 영상 dst를 생성함
+	float alpha = 1.f;
+	Mat dst = src + (src - 128) * alpha;
+
+	imshow("src", src);
+	imshow("dst", dst);
+	waitKey();
+
+	destroyAllWindows();
+}
