@@ -1,0 +1,34 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void contrast2();
+
+int main(void)
+{
+	contrast2();
+
+	return 0;
+}
+
+void contrast1()
+{
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	// 입력 영상의 src의 모든 픽셀 값에 2.0을 곱하여 결과 영상 dst를 생성함
+	float s = 2.f;
+	Mat dst = s * src;
+
+	imshow("src", src);
+	imshow("dst", dst);
+	waitKey();
+
+	destroyAllWindows();
+}
