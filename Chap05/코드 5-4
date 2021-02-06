@@ -1,0 +1,45 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void brightness4();
+void on_brightness(int pos, void* userdata);
+
+int main(void)
+{
+	brightness4();
+
+	return 0;
+}
+
+void brightness4()
+{
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	// 결과 영상을 출력하고 트랙바를 부착할 dst 창을 미리 생성함
+	namedWindow("dst");
+  // dst 창에 트랙바를 부착하고, 콜백 함수 on_brightness를 등록함
+  // 입력 영상 src 주소를 트랙바 콜백 함수의 사용자 데이터로 설정함
+	createTrackbar("Brightness", "dst", 0, 100, on_brightness, (void*)&src);
+  // 프로그램 실행시 dst 창에 레나 영상이 정상적으로 표시되도록 강제로 on_brightness 함수 호출
+	on_brightness(0, (void*)&src);
+
+	waitKey();
+	destroyAllWindows();
+}
+
+// 트랙바 콜백 함수에서 밝기 조절된 결과 영상 dst를 화면에 출력함
+void on_brightness(int pos, void* userdata)
+{
+	Mat src = *(Mat*)userdata;
+	Mat dst = src + pos;
+
+	imshow("dst", dst);
+}
