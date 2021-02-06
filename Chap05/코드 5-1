@@ -1,0 +1,36 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void brightness1();
+
+int main(void)
+{
+	brightness1();
+
+	return 0;
+}
+
+void brightness1()
+{
+	// 레나 영상을 그레이스케일 형식으로 불러와 src에 저장함
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	// 파일 불러오기 실패 ---> 에러 메시지 출력 및 종료
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	// src 영상의 모든 픽셀 값을 100 증가시킨 결과를 영상 dst에 저장함
+	Mat dst = src + 100;
+
+	// src와 dst 영상을 각각 새 창에 출력하고 키 입력이 있을 때까지 기다림
+	imshow("src", src);
+	imshow("dst", dst);
+	waitKey();
+
+	destroyAllWindows();
+}
