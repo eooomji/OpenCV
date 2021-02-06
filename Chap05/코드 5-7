@@ -1,0 +1,25 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+Mat calcGrayHist(const Mat& img);
+
+Mat calcGrayHist(const Mat& img)
+{
+	// CV_Assert() 매크로 함수를 이용해 calcGrayHist() 함수로 전달된 img 영상이 그레이스케일인지 검사
+	CV_Assert(img.type() == CV_8UC1);
+
+	// calcHist() 함수에 전달할 인자를 생성하는 구문
+	Mat hist;
+	int channels[] = { 0 };	// 히스토그램을 구할 채널 번호를 담은 channels 배열 생성
+	int dims = 1;	// 1을 대입한 건 하나의 채널에 대해서만 히스토그램을 구하기 때문. 결과로 구해지는 hist 행렬이 1차원임을 나타냄
+	const int histSize[] = { 256 };
+	float graylevel[] = { 0, 256 };
+	const float* ranges[] = { graylevel };
+
+	calcHist(&img, 1, channels, noArray(), hist, dims, histSize, ranges);
+
+	return hist;
+}
