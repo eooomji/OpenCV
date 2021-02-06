@@ -1,0 +1,36 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void histgoram_equalization();
+
+int main(void)
+{
+	histgoram_equalization();
+
+	return 0;
+}
+
+void histgoram_equalization()
+{
+	Mat src = imread("hawkes.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	Mat dst;
+	equalizeHist(src, dst);
+
+	imshow("src", src);
+	imshow("srcHist", getGrayHistImage(calcGrayHist(src)));
+
+	imshow("dst", dst);
+	imshow("dstHist", getGrayHistImage(calcGrayHist(dst)));
+
+	waitKey();
+	destroyAllWindows();
+}
