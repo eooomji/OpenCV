@@ -1,0 +1,40 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void brightness2();
+
+int main(void)
+{
+	brightness2();
+
+	return 0;
+}
+
+void brightness2()
+{
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	// 입력 영상 src와 크기, 타입이 같은 결과 영상 dst를 생성함
+	Mat dst(src.rows, src.cols, src.type());
+
+	// 영상 전체를 스캔하면서 입력 영상의 픽셀 값에 100을 더하여 결과 영상을 픽셀 값으로 저장
+	for (int j = 0; j < src.rows; j++) {
+		for (int i = 0; i < src.cols; i++) {
+			dst.at<uchar>(j, i) = src.at<uchar>(j, i) + 100;
+		}
+	}
+
+	imshow("src", src);
+	imshow("dst", dst);
+	waitKey();
+
+	destroyAllWindows();
+}
