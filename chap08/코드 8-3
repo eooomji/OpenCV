@@ -1,0 +1,37 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void affine_shear();
+
+int main(void)
+{
+	affine_shear();
+
+	return 0;
+}
+
+void affine_shear()
+{
+	Mat src = imread("tekapo.bmp");
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+  // 가로 방향으로 밀림을 0.3으로 설정한 전단 변환 행렬 M을 생성함
+	double mx = 0.3;
+	Mat M = Mat_<double>({ 2, 3 }, { 1, mx, 0, 0, 1, 0 });
+
+	Mat dst;
+	warpAffine(src, dst, M, Size(cvRound(src.cols + src.rows * mx), src.rows));
+
+	imshow("src", src);
+	imshow("dst", dst);
+
+	waitKey();
+	destroyAllWindows();
+}
