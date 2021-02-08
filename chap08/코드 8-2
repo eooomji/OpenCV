@@ -1,0 +1,36 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void affine_translation();
+
+int main(void)
+{
+	affine_translation();
+
+	return 0;
+}
+
+void affine_translation()
+{
+	Mat src = imread("tekapo.bmp");
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+  // 가로로 150픽셀, 세로로 100픽셀 이동하는 어파인 변환 행렬 M을 생성함
+	Mat M = Mat_<double>({ 2, 3 }, { 1, 0, 150, 0, 1, 100 });
+
+	Mat dst;
+	warpAffine(src, dst, M, Size());
+
+	imshow("src", src);
+	imshow("dst", dst);
+
+	waitKey();
+	destroyAllWindows();
+}
