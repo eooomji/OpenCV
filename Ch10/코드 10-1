@@ -1,0 +1,34 @@
+#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void color_op();
+
+int main(void)
+{
+	color_op();
+
+	return 0;
+}
+
+void color_op()
+{
+	Mat img = imread("butterfly.jpg", IMREAD_COLOR);
+
+	if (img.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	Vec3b& pixel = img.at<Vec3b>(0, 0);
+	uchar b1 = pixel[0];
+	uchar g1 = pixel[1];
+	uchar r1 = pixel[2];
+
+	Vec3b* ptr = img.ptr<Vec3b>(0);
+	uchar b2 = ptr[0][0];
+	uchar g2 = ptr[0][1];
+	uchar r2 = ptr[0][2];
+}
